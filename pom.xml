@@ -19,8 +19,21 @@
                         <phase>package</phase>
                     </execution>
                 </executions>
+                <!-- Configuration options:
+                     See https://github.com/oracle/graal/blob/master/substratevm/src/native-image-maven-plugin/src/main/java/com/oracle/substratevm/NativeImageMojo.java
+                     * outputDir (default: ${project.build.directory})
+                     * mainClass
+                     * imageName
+                     * buildArgs
+                     * skip (default: false)
+                -->
                 <configuration>
-                  <mainClass>naoki.smallpt.SmallPT</mainClass>
+                    <mainClass>naoki.smallpt.SmallPT</mainClass>
+                    <buildArgs>
+                        --report-unsupported-elements-at-runtime
+                        --no-fallback
+                        -H:+ReportExceptionStackTraces
+                    </buildArgs>
                 </configuration>
             </plugin>
         </plugins>
