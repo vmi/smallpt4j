@@ -6,3 +6,6 @@
 *.lib
 *.pdb
 *.log
+/.classpath
+/.project
+/.settings

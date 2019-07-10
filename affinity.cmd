@@ -1,1 +1,1 @@
-start /AFFINITY 1 /WAIT cmd /c native-build.cmd
+start /AFFINITY 1 /WAIT cmd /c %*

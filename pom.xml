@@ -8,28 +8,20 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <finalName>smallpt</finalName>
-                    <transformers>
-                        <transformer
-                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <manifestEntries>
-                                <Main-Class>naoki.smallpt.SmallPT</Main-Class>
-                            </manifestEntries>
-                        </transformer>
-                    </transformers>
-                </configuration>
+                <groupId>com.oracle.substratevm</groupId>
+                <artifactId>native-image-maven-plugin</artifactId>
+                <version>19.1.0</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>native-image</goal>
                         </goals>
+                        <phase>package</phase>
                     </execution>
                 </executions>
+                <configuration>
+                  <mainClass>naoki.smallpt.SmallPT</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
